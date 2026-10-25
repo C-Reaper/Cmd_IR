@@ -1,0 +1,9 @@
+extern @i16_add i16 i16 i16
+
+global @i16_sub i16 i16 i16
+    add i16 &0 &1 &2
+    ret
+
+define @main i16
+    ass i16 &0 68
+    ret

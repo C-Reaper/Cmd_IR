@@ -1,4 +1,22 @@
+extern @print_i16 i16
 
-define i16 @main
-    ass i16 %0 68
-    ret i16 %0
+extern @i16_add i16 i16 i16
+    alloca  i16         %ret
+    alloca  i16         %a
+    store   i16         %a      &1
+    alloca  i16         %b
+    store   i16         %b      &2
+    load    i16         %1      %a
+    load    i16         %2      %b
+    add     i16         %3      %1      %2
+    store   i16         %ret    %3
+    ass     i16         &0      %3
+    ret
+
+global @i16_sub i16 i16 i16
+    sub     i16         &0      &1      &2
+    ret
+
+define @main i16
+    ass     i16         &0      68
+    ret
