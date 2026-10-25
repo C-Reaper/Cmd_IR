@@ -1,44 +1,34 @@
 ; IR Code like ASM for Optimisations
 ; Can be translated to other Languages
 ;define %CSTR.0 "Hello World" 10 0
-
-extern i16 @add1
-global i16 @add2
-    ret i16 69
-
 ; i16 main(){
 ;     i16 a = 1;
 ;     i16 b = 2;
 ;     return a + b;
 ; }
 
-define i16 @main
+extern @print_i16 i16
+
+extern @i16_add i16 i16 i16
+    alloca  i16         %ret
     alloca  i16         %a
-    store   i16         %a 1
+    store   i16         %a      &1
     alloca  i16         %b
-    store   i16         %b 2
-    load    i16         %1 %a
-    load    i16         %2 %b
-    add     i16         %3 %1 %2
-    ret i16 %3
+    store   i16         %b      &2
+    load    i16         %1      %a
+    load    i16         %2      %b
+    add     i16         %3      %1      %2
+    store   i16         %ret    %3
+    ass     i16         &0      %3
+    ret
 
+global @i16_sub i16 i16 i16
+    sub     i16         &0      &1      &2
+    ret
 
-define i32 @add i32 %a i32 %b
-    add     i32         %0 %a %b
-    ret     i32         %0
-
-define i32 @main
-    alloca  i32         %a
-    store   i32         %a 1
-    alloca  i32         %b
-    store   i32         %b 2
-    
-    load    i32         %1 %a
-    load    i32         %2 %b
-    call    @add        %3 %1 %2
-
-    equ     i32         %4 %1 %2
-    br      i32         IF0 %4
-    call    @io.print   %CSTR.0
-IF0:
-    ret i32 %3
+define @main i16
+    ass     i16         %0      2
+    ass     i16         %1      1
+    call    @i16_sub    %2      %0      %1
+    ass     i16         &0      %2
+    ret
