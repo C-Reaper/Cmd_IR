@@ -7,9 +7,10 @@
 ;     return a + b;
 ; }
 
-extern @print_i16 i16
+extern @i16_println i16
+extern @println ..
 
-extern @i16_add i16 i16 i16
+global @i16_add i16 i16 i16
     alloca  i16         %ret
     alloca  i16         %a
     store   i16         %a      &1
@@ -22,13 +23,15 @@ extern @i16_add i16 i16 i16
     ass     i16         &0      %3
     ret
 
-global @i16_sub i16 i16 i16
-    sub     i16         &0      &1      &2
+define @fn_add i16 i16 i16
+    add     i16             &0      &1      &2
     ret
 
-define @main i16
-    ass     i16         %0      2
-    ass     i16         %1      1
-    call    @i16_sub    %2      %0      %1
-    ass     i16         &0      %2
+global @main i16
+    ass     i16             %0      2
+    ass     i16             %1      1
+    call    @fn_add         %2      %0      %1
+    call    @i16_println    %2
+    call    @println        %0      %1      %2
+    ass     i16             &0      %2
     ret
