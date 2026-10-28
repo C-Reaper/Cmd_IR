@@ -11,9 +11,12 @@ global @main i16
     add     i16             %2      %0      %1
 
     alloca  i16             %a
-    store   i16             %a      %2
-    load    i16             %3      %a
+    ass     i16             %a      %0
+    add     i16             %3      %a      %1
     destroy %a
+
+    ;store   i16             %a      %2
+    ;load    i16             %3      %a
 
     ass     i16             &0      %3
     ret

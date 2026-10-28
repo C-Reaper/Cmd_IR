@@ -39,20 +39,26 @@ int main(int argc,char** argv){
     */
 
     IRVM vm = IRVM_New();
-    IRVM_AddScript(&vm,"./code/Main." IRVM_TYPE);
+    IRVM_AddScript(&vm,"./test/Opt/IOE." IRVM_TYPE);
+    IRVM_Print(&vm);
+    IRVM_Optimiser_Exe(&vm,0U);
+    IRVM_Print(&vm);
+    IRVM_Free(&vm);
     
-    IRVM_Exe exe = IRVM_Exe_New(vm,"./bin");
+    /*
+    IRVM_Exe exe = IRVM_Exe_New(vm);
     IRVM_Exe_LinkFunction(&exe,"i16_println",IRVM_Exe_Func_i16_println);
     IRVM_Exe_LinkFunction(&exe,"println",IRVM_Exe_Func_println);
 
-    IRVM_Exe_Variable a = IRVM_Exe_Variable_New("a","i16",(Number[]){ 1UL },IRVM_Impl_Size("i16"),0,0);
+    IRVM_Exe_Variable a = IRVM_Exe_Variable_New("a",IRVM_TYPE_I16,(Number[]){ 1UL },IRVM_Impl_Size(IRVM_TYPE_I16),0,0);
     IRVM_Exe_CallFunction(&exe,"main",(IRVM_Exe_Variable[]){
         a,
         IRVM_Exe_Variable_Null()
     });
     IRVM_Exe_Variable_Print(&a);
     IRVM_Exe_Variable_Free(&a);
-    
+    IRVM_Exe_Print(&exe);
     IRVM_Exe_Free(&exe);
+    */
     return 0;
 }
