@@ -23,5 +23,8 @@ define @fn_add i16 i16 i16
     ass     i16             %5      0
     ass     i16             %6      0
 
+    mul     i16             %5      %0      2
+    mul     i16             %6      2       %0
+
     ass     i16             &0      %3
     ret
