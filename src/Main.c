@@ -44,8 +44,9 @@ int main(int argc,char** argv){
     Strength Reduction:         "./test/Opt/SR."
     Constant Folding:           "./test/Opt/CF."
     Constant Propagation:       "./test/Opt/CP."
+    Dead Code Elimination:      "./test/Opt/DCE."
     */
-    IRVM_AddScript(&vm,"./test/Opt/CP." IRVM_TYPE);
+    IRVM_AddScript(&vm,"./test/Opt/DCE." IRVM_TYPE);
     IRVM_Print(&vm);
     IRVM_Build(&vm);
     IRVM_Optimiser_Exe(&vm,0U);
