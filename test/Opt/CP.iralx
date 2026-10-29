@@ -1,33 +1,20 @@
 define @fn_add i16 i16 i16
-    ass     i16             %0      10
-    ass     i16             %1      20
-    ass     i16             %2      30
+    add     i16             %0      10      10
+    sub     i16             %1      %0      20
+    
+    mul     i16             %2      %1      30
+    div     i16             %3      %2      40
+    
+    neg     i16             %4      %3
+    inc     i16             %5      %4
+    dec     i16             %6      %5
+    not     i16             %7      %6
+    
+    and     i16             %8      %7      %6
+    or      i16             %9      %8      %7
+    xor     i16             %10     %9      %8
+    shl     i16             %11     %10     %9
+    shr     i16             %12     %11     %10
 
-    ass     i16             %3      %2
-
-    add     i16             %4      %0      0
-    sub     i16             %5      %0      0
-    mul     i16             %6      %0      1
-    div     i16             %7      %0      1
-
-    add     i16             %8      %3      0
-    sub     i16             %9      %4      0
-    mul     i16             %10     %5      1
-    div     i16             %11     %6      1
-
-    add     i16             %12     %3      %3
-    sub     i16             %13     0       %4
-    mul     i16             %14     %5      0
-    div     i16             %15     %6      0
-
-    ass     i16             %16     0
-    ass     i16             %17     0
-
-    mul     i16             %18     %0      2
-    mul     i16             %19     2       %0
-
-    add     i16             %20     %7      1
-    sub     i16             %21     %8      1
-
-    ass     i16             &0      %3
+    ass     i16             &0      %12
     ret

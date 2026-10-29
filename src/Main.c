@@ -45,7 +45,7 @@ int main(int argc,char** argv){
     Constant Folding:           "./test/Opt/CF."
     Constant Propagation:       "./test/Opt/CP."
     */
-    IRVM_AddScript(&vm,"./test/Opt/AS." IRVM_TYPE);
+    IRVM_AddScript(&vm,"./test/Opt/CP." IRVM_TYPE);
     IRVM_Print(&vm);
     IRVM_Build(&vm);
     IRVM_Optimiser_Exe(&vm,0U);
