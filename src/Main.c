@@ -39,8 +39,15 @@ int main(int argc,char** argv){
     */
 
     IRVM vm = IRVM_New();
-    IRVM_AddScript(&vm,"./test/Opt/IOE." IRVM_TYPE);
+    /*
+    Algebraic Simplification:   "./test/Opt/AS."
+    Strength Reduction:         "./test/Opt/SR."
+    Constant Folding:           "./test/Opt/CF."
+    Constant Propagation:       "./test/Opt/CP."
+    */
+    IRVM_AddScript(&vm,"./test/Opt/AS." IRVM_TYPE);
     IRVM_Print(&vm);
+    IRVM_Build(&vm);
     IRVM_Optimiser_Exe(&vm,0U);
     IRVM_Print(&vm);
     IRVM_Free(&vm);

@@ -1,0 +1,28 @@
+define @fn_add i16 i16 i16
+    ass     i16             %0      10
+    ass     i16             %1      20
+
+    add     i16             %2      %0      0
+    sub     i16             %3      %0      0
+    add     i16             %4      0       %0
+    sub     i16             %5      0       %0
+    add     i16             %6      %3      %3
+
+    mul     i16             %7      %0      1
+    div     i16             %8      %0      1
+    mul     i16             %9      1       %0
+    div     i16             %10     1       %0
+
+    mul     i16             %11     %5      0
+    div     i16             %12     %6      0
+    mul     i16             %13     0       %5
+    div     i16             %14     0       %6
+
+    mul     i16             %15     %0      2
+    mul     i16             %16     2       %0
+
+    add     i16             %17     %7      1
+    sub     i16             %18     %8      1
+
+    ass     i16             &0      %18
+    ret
