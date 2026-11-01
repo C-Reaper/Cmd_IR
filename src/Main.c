@@ -40,13 +40,14 @@ int main(int argc,char** argv){
 
     IRVM vm = IRVM_New();
     /*
-    Algebraic Simplification:   "./test/Opt/AS."
-    Strength Reduction:         "./test/Opt/SR."
-    Constant Folding:           "./test/Opt/CF."
-    Constant Propagation:       "./test/Opt/CP."
-    Dead Code Elimination:      "./test/Opt/DCE."
+    Algebraic Simplification:           "./test/Opt/AS."
+    Strength Reduction:                 "./test/Opt/SR."
+    Constant Folding:                   "./test/Opt/CF."
+    Constant Propagation:               "./test/Opt/CP."
+    Dead Code Elimination:              "./test/Opt/DCE."
+    Common Subexpression Elimination:   "./test/Opt/CSE."
     */
-    IRVM_AddScript(&vm,"./test/Opt/DCE." IRVM_TYPE);
+    IRVM_AddScript(&vm,"./test/Opt/CSE." IRVM_TYPE);
     IRVM_Print(&vm);
     IRVM_Build(&vm);
     IRVM_Optimiser_Exe(&vm,0U);
