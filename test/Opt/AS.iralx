@@ -14,7 +14,7 @@ global @main i16 i16 i16
     div     i16             %10     1       %0
 
     mul     i16             %11     %5      0
-    div     i16             %12     %6      0
+    div     i16             %12     0       1
     mul     i16             %13     0       %5
     div     i16             %14     0       %6
 
