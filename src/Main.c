@@ -47,7 +47,7 @@ int main(int argc,char** argv){
     Dead Code Elimination:              "./test/Opt/DCE."
     Common Subexpression Elimination:   "./test/Opt/CSE."
     */
-    IRVM_AddScript(&vm,"./test/Opt/CSE." IRVM_TYPE);
+    IRVM_AddScript(&vm,"./test/Exe/JUMP." IRVM_TYPE);
     IRVM_Print(&vm);
     IRVM_Build(&vm);
     IRVM_Optimiser_Exe(&vm,0U);

@@ -6,7 +6,12 @@ define @fn_add i16 i16 i16
     add     i16             %3      10      20
     add     i16             %4      %0      %1
     add     i16             %5      %3      %4
-    add     i16             %6      %2      %5
+    add     i16             %6      %3      %4
+    add     i16             %7      %2      %6
+    add     i16             %8      10      20
+
+    sub     i16             %9      10      20
+    sub     i16             %10     10      20
     
-    ass     i16             &0      %6
+    ass     i16             &0      %7
     ret
