@@ -1,6 +1,9 @@
 //#include "/home/codeleaded/System/Static/Library/IRVM.h"
 #include "/home/codeleaded/System/Static/Library/IRVM_Exe.h"
 
+#define IRVM_TESTTYPE       IRVM_TYPE_I16
+#define IRVM_TESTTYPE_C     short
+
 FunctionRT IRVM_Exe_Func_i16_println(IRVM_Exe* exe,Vector* vars){
     if(vars->size != 1){
         IRVM_ErrorHandler(&exe->vm,"Exe_Func_i16_println: args invalid!");
@@ -32,9 +35,9 @@ int IRVM_Testing(CStr file,Number a_out,Number b_in,Number c_in){
     //IRVM_Exe_LinkFunction(&exe,"i16_println",IRVM_Exe_Func_i16_println);
     //IRVM_Exe_LinkFunction(&exe,"println",IRVM_Exe_Func_println);
 
-    IRVM_Exe_Variable a = IRVM_Exe_Variable_New("a",IRVM_TYPE_I16,(Number[]){ 0UL }, IRVM_Impl_Size(IRVM_TYPE_I16),0,0);
-    IRVM_Exe_Variable b = IRVM_Exe_Variable_New("b",IRVM_TYPE_I16,(Number[]){ b_in },IRVM_Impl_Size(IRVM_TYPE_I16),0,0);
-    IRVM_Exe_Variable c = IRVM_Exe_Variable_New("c",IRVM_TYPE_I16,(Number[]){ c_in },IRVM_Impl_Size(IRVM_TYPE_I16),0,0);
+    IRVM_Exe_Variable a = IRVM_Exe_Variable_New("a",IRVM_TESTTYPE,(Number[]){ 0UL }, IRVM_Impl_Size(IRVM_TESTTYPE),0,0);
+    IRVM_Exe_Variable b = IRVM_Exe_Variable_New("b",IRVM_TESTTYPE,(Number[]){ b_in },IRVM_Impl_Size(IRVM_TESTTYPE),0,0);
+    IRVM_Exe_Variable c = IRVM_Exe_Variable_New("c",IRVM_TESTTYPE,(Number[]){ c_in },IRVM_Impl_Size(IRVM_TESTTYPE),0,0);
     
     IRVM_Exe_CallFunction(&exe,"main",(IRVM_Exe_Variable[]){
         a,
@@ -44,9 +47,9 @@ int IRVM_Testing(CStr file,Number a_out,Number b_in,Number c_in){
     });
     //IRVM_Exe_Variable_Print(&a);
 
-    const Number v_a = *(Number*)a.data;
-    const Number v_b = *(Number*)b.data;
-    const Number v_c = *(Number*)c.data;
+    const Number v_a = *(IRVM_TESTTYPE_C*)a.data;
+    const Number v_b = *(IRVM_TESTTYPE_C*)b.data;
+    const Number v_c = *(IRVM_TESTTYPE_C*)c.data;
     const int result = v_a == a_out && v_b == b_in && v_c == c_in;
 
     IRVM_Exe_Variable_Free(&c);
@@ -67,9 +70,9 @@ int IRVM_Testing_Opt(CStr file,Number a_out,Number b_in,Number c_in){
     //IRVM_Exe_LinkFunction(&exe,"i16_println",IRVM_Exe_Func_i16_println);
     //IRVM_Exe_LinkFunction(&exe,"println",IRVM_Exe_Func_println);
 
-    IRVM_Exe_Variable a = IRVM_Exe_Variable_New("a",IRVM_TYPE_I16,(Number[]){ 0UL }, IRVM_Impl_Size(IRVM_TYPE_I16),0,0);
-    IRVM_Exe_Variable b = IRVM_Exe_Variable_New("b",IRVM_TYPE_I16,(Number[]){ b_in },IRVM_Impl_Size(IRVM_TYPE_I16),0,0);
-    IRVM_Exe_Variable c = IRVM_Exe_Variable_New("c",IRVM_TYPE_I16,(Number[]){ c_in },IRVM_Impl_Size(IRVM_TYPE_I16),0,0);
+    IRVM_Exe_Variable a = IRVM_Exe_Variable_New("a",IRVM_TESTTYPE,(Number[]){ 0UL }, IRVM_Impl_Size(IRVM_TESTTYPE),0,0);
+    IRVM_Exe_Variable b = IRVM_Exe_Variable_New("b",IRVM_TESTTYPE,(Number[]){ b_in },IRVM_Impl_Size(IRVM_TESTTYPE),0,0);
+    IRVM_Exe_Variable c = IRVM_Exe_Variable_New("c",IRVM_TESTTYPE,(Number[]){ c_in },IRVM_Impl_Size(IRVM_TESTTYPE),0,0);
     
     IRVM_Exe_CallFunction(&exe,"main",(IRVM_Exe_Variable[]){
         a,
@@ -79,9 +82,9 @@ int IRVM_Testing_Opt(CStr file,Number a_out,Number b_in,Number c_in){
     });
     //IRVM_Exe_Variable_Print(&a);
 
-    const Number v_a = *(Number*)a.data;
-    const Number v_b = *(Number*)b.data;
-    const Number v_c = *(Number*)c.data;
+    const Number v_a = *(IRVM_TESTTYPE_C*)a.data;
+    const Number v_b = *(IRVM_TESTTYPE_C*)b.data;
+    const Number v_c = *(IRVM_TESTTYPE_C*)c.data;
     const int result = v_a == a_out && v_b == b_in && v_c == c_in;
 
     IRVM_Exe_Variable_Free(&c);
