@@ -1,4 +1,4 @@
-define @fn_add i16 i16 i16
+global @main i16 i16 i16
     ass     i16             %0      10
     ass     i16             %1      20
     add     i16             %2      %0      %1

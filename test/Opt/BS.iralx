@@ -1,0 +1,14 @@
+global @main i16 i16 i16
+    lt      i16             %0      10      20
+    brc     %0              l_0     l_1
+    
+    tar     l_0
+    ass     i16             &0      10
+    ret
+    
+    tar     l_1
+    ass     i16             &0      20
+    ret
+
+    tar     l_2
+    ret
