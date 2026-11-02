@@ -111,36 +111,19 @@ int main(int argc,char** argv){
     successful += IRVM_Testing_Exe("./test/Opt/AS."  IRVM_TYPE,9,10,20);
     successful += IRVM_Testing_Exe("./test/Opt/SR."  IRVM_TYPE,11,10,20);
     successful += IRVM_Testing_Exe("./test/Opt/CF."  IRVM_TYPE,30,10,20);
-    successful += IRVM_Testing_Exe("./test/Opt/CP."  IRVM_TYPE,-1,10,20);
+    successful += IRVM_Testing_Exe("./test/Opt/CP."  IRVM_TYPE,375,10,20);
     successful += IRVM_Testing_Exe("./test/Opt/DCE." IRVM_TYPE,30,10,20);
     successful += IRVM_Testing_Exe("./test/Opt/CSE." IRVM_TYPE,90,10,20);
-    successful += IRVM_Testing_Exe("./test/Opt/UCE." IRVM_TYPE,0,10,20);
-    successful += IRVM_Testing_Exe("./test/Opt/BS."  IRVM_TYPE,0,10,20);
+    successful += IRVM_Testing_Exe("./test/Opt/UCE." IRVM_TYPE,23,10,20);
+    successful += IRVM_Testing_Exe("./test/Opt/BS."  IRVM_TYPE,10,10,20);
     successful += IRVM_Testing_Exe("./test/Opt/BBS." IRVM_TYPE,60,10,20);
     printf("--------------------------------\n");
 
     printf("Test result: %d/%d\n",successful,max_successful);
     
-
-    //if(argc < 2){
-    //    printf("[IRVM]: Arguments -> Usage: irvm <.iralx>\n");
-    //    return 0;
-    //}
-
-    /*
-    Algebraic Simplification:           "./test/Opt/AS."
-    Strength Reduction:                 "./test/Opt/SR."
-    Constant Folding:                   "./test/Opt/CF."
-    Constant Propagation:               "./test/Opt/CP."
-    Dead Code Elimination:              "./test/Opt/DCE."
-    Common Subexpression Elimination:   "./test/Opt/CSE."
-    Unreachable Code Elimination:       "./test/Opt/UCE."
-    Branch Simplification:              "./test/Opt/BS."
-    */
-    
     /*
     IRVM vm = IRVM_New();
-    IRVM_AddScript(&vm,"./test/Opt/BBS." IRVM_TYPE);
+    IRVM_AddScript(&vm,"./test/Opt/AS." IRVM_TYPE);
     IRVM_Print(&vm);
     IRVM_Build(&vm);
     IRVM_Optimiser_Exe(&vm,0U);
@@ -172,3 +155,20 @@ int main(int argc,char** argv){
     */
     return 0;
 }
+
+//if(argc < 2){
+//    printf("[IRVM]: Arguments -> Usage: irvm <.iralx>\n");
+//    return 0;
+//}
+
+/*
+Algebraic Simplification:           "./test/Opt/AS."
+Strength Reduction:                 "./test/Opt/SR."
+Constant Folding:                   "./test/Opt/CF."
+Constant Propagation:               "./test/Opt/CP."
+Dead Code Elimination:              "./test/Opt/DCE."
+Common Subexpression Elimination:   "./test/Opt/CSE."
+Unreachable Code Elimination:       "./test/Opt/UCE."
+Branch Simplification:              "./test/Opt/BS."
+*/
+    

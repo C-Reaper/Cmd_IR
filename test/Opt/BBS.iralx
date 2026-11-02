@@ -1,4 +1,4 @@
-global @main i16 i16 i16
+global i16 @main i16 i16
     add     i16             %0      &1      &2
     jmp     l_0
     
@@ -16,5 +16,4 @@ global @main i16 i16 i16
 
     tar     l_3
     add     i16             %4      %1      %2
-    ass     i16             &0      %4
-    ret
+    ret     %4

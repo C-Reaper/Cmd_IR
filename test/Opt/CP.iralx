@@ -1,9 +1,9 @@
-global @main i16 i16 i16
-    add     i16             %0      10      10
-    sub     i16             %1      %0      20
+global i16 @main i16 i16
+    add     i16             %0      10      20
+    sub     i16             %1      %0      5
     
     mul     i16             %2      %1      30
-    div     i16             %3      %2      40
+    div     i16             %3      %2      2
     
     neg     i16             %4      %3
     inc     i16             %5      %4
@@ -16,5 +16,4 @@ global @main i16 i16 i16
     shl     i16             %11     %10     %9
     shr     i16             %12     %11     %10
 
-    ass     i16             &0      %12
-    ret
+    ret     %3

@@ -1,4 +1,4 @@
-global @main i16 i16 i16
+global i16 @main i16 i16
     ass     i16             %0      10
     ass     i16             %1      20
     
@@ -10,5 +10,4 @@ global @main i16 i16 i16
     add     i16             %5      %0      1
     sub     i16             %6      %0      1
 
-    ass     i16             &0      %5
-    ret
+    ret     %5
