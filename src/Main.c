@@ -104,6 +104,7 @@ int IRVM_Testing_Exe(CStr file,Number a_out,Number b_in,Number c_in){
 }
 
 int main(int argc,char** argv){
+    /*
     const int max_successful = 9 * 2;
     int successful = 0;
 
@@ -120,16 +121,16 @@ int main(int argc,char** argv){
     printf("--------------------------------\n");
 
     printf("Test result: %d/%d\n",successful,max_successful);
+    */
     
-    /*
     IRVM vm = IRVM_New();
-    IRVM_AddScript(&vm,"./test/Opt/AS." IRVM_TYPE);
-    IRVM_Print(&vm);
+    IRVM_AddScript(&vm,"./test/Comp/Main." IRVM_TYPE);
+    IRVM_PrintFn(&vm);
     IRVM_Build(&vm);
-    IRVM_Optimiser_Exe(&vm,0U);
-    IRVM_Print(&vm);
-    //IRVM_Free(&vm);
-    
+    //IRVM_Optimiser_Exe(&vm,0U);
+    //IRVM_Print(&vm);
+    IRVM_Free(&vm);
+    /*
     IRVM_Exe exe = IRVM_Exe_New(vm);
     
     IRVM_Exe_Variable a = IRVM_Exe_Variable_New("a",IRVM_TYPE_I16,(Number[]){ 0UL }, IRVM_Impl_Size(IRVM_TYPE_I16),0,0);
